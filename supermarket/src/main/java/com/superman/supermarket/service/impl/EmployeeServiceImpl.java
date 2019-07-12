@@ -6,6 +6,7 @@ import com.superman.supermarket.dao.EmployeeMapper;
 import com.superman.supermarket.service.EmployeeService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -18,14 +19,15 @@ import javax.annotation.Resource;
  * @since 2019-07-12
  */
 @Service
+@Transactional
 public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> implements EmployeeService {
     @Resource
     private EmployeeMapper employeeMapper;
 
     @Override
     public Employee getEmployeeByEmpAccountAndPwd(String account) {
-        QueryWrapper<Employee> wrapper = new QueryWrapper<>();
+        QueryWrapper<Employee> wrapper = new QueryWrapper<Employee>();
         wrapper.eq("emp_account",account);
-        return employeeMapper.selectOne(wrapper);
+        return  employeeMapper.selectOne(wrapper);
     }
 }
