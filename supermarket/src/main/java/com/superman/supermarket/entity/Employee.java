@@ -29,7 +29,7 @@ private static final long serialVersionUID=1L;
 
     private String empName;
 
-    private Integer roleId;
+    private Roles roles;
 
     private Integer empStatus;
 
@@ -73,12 +73,12 @@ private static final long serialVersionUID=1L;
         this.empName = empName;
     }
 
-    public Integer getRoleId() {
-        return roleId;
+    public Roles getRoles() {
+        return roles;
     }
 
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
+    public void setRoles(Roles roles) {
+        this.roles = roles;
     }
 
     public Integer getEmpStatus() {
@@ -120,7 +120,7 @@ private static final long serialVersionUID=1L;
         ", empAccount=" + empAccount +
         ", empPwd=" + empPwd +
         ", empName=" + empName +
-        ", roleId=" + roleId +
+        ", roleId=" + roles +
         ", empStatus=" + empStatus +
         ", empPhone=" + empPhone +
         ", createDate=" + createDate +
