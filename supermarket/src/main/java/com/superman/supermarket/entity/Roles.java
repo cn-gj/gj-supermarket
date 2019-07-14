@@ -21,7 +21,7 @@ private static final long serialVersionUID=1L;
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private byte[] roleName;
+    private String roleName;
 
 
     public Integer getId() {
@@ -32,11 +32,11 @@ private static final long serialVersionUID=1L;
         this.id = id;
     }
 
-    public byte[] getRoleName() {
+    public String getRoleName() {
         return roleName;
     }
 
-    public void setRoleName(byte[] roleName) {
+    public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
 

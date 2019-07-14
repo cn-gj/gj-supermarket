@@ -25,9 +25,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     private EmployeeMapper employeeMapper;
 
     @Override
-    public Employee getEmployeeByEmpAccountAndPwd(String account) {
-        QueryWrapper<Employee> wrapper = new QueryWrapper<Employee>();
-        wrapper.eq("emp_account",account);
-        return  employeeMapper.selectOne(wrapper);
+    public Employee getEmployeeByEmpAccount(String account) {
+        return employeeMapper.getEmployeeByEmpAccount(account);
     }
 }

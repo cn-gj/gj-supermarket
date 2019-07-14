@@ -16,8 +16,7 @@ public interface EmployeeService extends IService<Employee> {
     /**
      * 根据员工账号查询员工信息
      * @param account
-     * @param pwd
      * @return
      */
-    Employee getEmployeeByEmpAccountAndPwd(String account);
+    Employee getEmployeeByEmpAccount(String account);
 }
