@@ -1,11 +1,12 @@
 package com.superman.supermarket.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.time.LocalDate;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -44,7 +45,7 @@ private static final long serialVersionUID=1L;
     private Integer shopTypeId;
 
     @TableField("createDate")
-    private LocalDate createDate;
+    private Date createDate;
 
 
     public Integer getId() {
@@ -135,11 +136,11 @@ private static final long serialVersionUID=1L;
         this.shopTypeId = shopTypeId;
     }
 
-    public LocalDate getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(LocalDate createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 

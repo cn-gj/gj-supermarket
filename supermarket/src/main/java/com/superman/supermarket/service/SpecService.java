@@ -3,6 +3,8 @@ package com.superman.supermarket.service;
 import com.superman.supermarket.entity.Spec;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
