@@ -40,7 +40,7 @@ public class EmployeeRealm extends AuthorizingRealm{
 	}
 
 
-	//entica是为当前用户进行身份验证的
+	//entica是为;当前用户进行身份验证的
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		String empAccount = (String) token.getPrincipal();//获取账户

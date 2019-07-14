@@ -29,5 +29,5 @@ public interface ShopService extends IService<Shop> {
      * @param shopVO
      * @return
      */
-    IPage<ShopVO> getShopInfoByCondition(Page<ShopVO> page, ShopVO shopVO);
+    List<ShopVO> getShopInfoByCondition(ShopVO shopVO);
 }

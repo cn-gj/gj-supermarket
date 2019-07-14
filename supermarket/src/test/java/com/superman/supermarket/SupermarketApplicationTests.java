@@ -1,15 +1,12 @@
 package com.superman.supermarket;
 
-<<<<<<< HEAD
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+
 import com.superman.supermarket.dao.ShopMapper;
-import com.superman.supermarket.entity.Shop;
 import com.superman.supermarket.entity.vo.ShopVO;
 import com.superman.supermarket.service.ShopService;
-=======
+
 import com.superman.supermarket.dao.EmployeeMapper;
-import com.superman.supermarket.entity.Employee;
->>>>>>> dd3dddb50dc04185beeaa105c26cdbcf7b99725c
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,6 +19,8 @@ import javax.annotation.Resource;
 public class SupermarketApplicationTests {
     @Resource
     private ShopService shopService;
+    @Resource
+    private ShopMapper shopMapper;
 
     @Resource
     private EmployeeMapper employeeMapper;
@@ -33,13 +32,11 @@ public class SupermarketApplicationTests {
                 "order_detail","permissions","pro_shop_relation","provider","role_per_relation","roles",
                 "shop","shop_type","spec","spec_detail","spec_tmp","store","ticket","ticket_detail","whole_order"};
         System.out.println(tables.length);*/
-<<<<<<< HEAD
-        Page<ShopVO> page = new Page<>(1,2);
-        System.out.println(shopService.getShopInfoByCondition(page,new ShopVO()));
-=======
-        /*Employee emp = employeeMapper.findEmpById(1);
-        System.out.print(emp.getRoles().getRoleName()+"-------------");*/
->>>>>>> dd3dddb50dc04185beeaa105c26cdbcf7b99725c
+
+        System.out.println(shopMapper.selectById(1));
+
+       /* System.out.println(shopService.getShopInfoByCondition(null));*/
+
     }
 
 }

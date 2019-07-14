@@ -54,17 +54,17 @@ public class ShopController {
         //调用方法查询所有门店名称
         List<Shop> shops = shopService.findAllShopName();
         //获取分页信息对象
-        Page<ShopVO> pageInfo = new Page<ShopVO>(page,rows);
+//        Page<ShopVO> pageInfo = new Page<ShopVO>(page,rows);
         //调用方法查询门店列表信息
-        IPage<ShopVO> shopVOIPage= shopService.getShopInfoByCondition(pageInfo,shopVO);
+        List<ShopVO> shopVOIPage= shopService.getShopInfoByCondition(shopVO);
         //把门店类别信息存放到map集合
         map.put("shopTypeList",shopTypes);
         //把所有门店名称存放到map集合
         map.put("shopList",shops);
         //获取总记录数、并保存到map
-        map.put("total", shopVOIPage.getTotal());
+       // map.put("total", shopVOIPage.getTotal());
         //获取门店列表信息、并保存到map
-        map.put("rows", shopVOIPage.getRecords());
+       // map.put("rows", shopVOIPage.getRecords());
         //返回json数据
         return JSON.toJSONString(map);
     }
