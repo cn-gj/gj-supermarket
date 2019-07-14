@@ -34,6 +34,7 @@
         SELECT * FROM shop s
         INNER JOIN shop_type st
         ON s.`shop_type_id` = st.`id`
+        WHERE s.`shop_type_id` = st.`id`
 <!--        <where>-->
 <!--            <if test="shopVo.shopName != null and shopVo.shopName != ''">-->
 <!--                AND s.`shop_name` LIKE contat('%',#{shopVo.shopName},'%')-->

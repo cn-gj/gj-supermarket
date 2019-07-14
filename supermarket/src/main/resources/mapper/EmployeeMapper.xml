@@ -19,6 +19,14 @@
             <id property="id" column="roles_id"></id>
             <result property="roleName" column="role_name"></result>
         </association>
+
+        <!--
+            配置用户与门店的关系
+           -->
+        <association property="shop" javaType="com.superman.supermarket.entity.Shop">
+            <id property="id" column="shop_id"></id>
+            <result column="shop_name" property="shopName" />
+        </association>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -36,9 +44,57 @@
 
     <!-- 根据用户名查询用户 -->
     <select id="getEmployeeByEmpAccount" parameterType="string" resultMap="BaseResultMap">
-        SELECT emp.*,r.`id` roles_id,r.`role_name`
-        FROM employee emp,roles r
-        WHERE emp.`role_id` = r.`id`
-        AND emp.`emp_account`= #{account}
+       SELECT * FROM employee e WHERE e.`emp_account`= #{account}
+    </select>
+
+    <!--
+        根据条件查询员工信息
+        根据员工角色,状态,归属门店,账号,用户名称,用户电话
+     -->
+    <select id="findEmpByCondition" resultMap="BaseResultMap" parameterType="employee">
+        SELECT emp.*,r.`id` roles_id,r.`role_name`, s.id shop_id, s.shop_name
+        FROM employee emp,roles r,shop s
+        <where>
+            AND emp.`role_id` = r.`id`
+            AND emp.shop_id = s.id
+            <if test="roles != null and roles.id != null">
+                AND emp.role_id = #{roles.id}
+            </if>
+            <if test="empStatus != null">
+                AND emp.emp_status = #{empStatus}
+            </if>
+            <if test="shop != null and shop.id != null">
+                AND emp.shop_id = #{shop.id}
+            </if>
+            <if test="empAccount != null and empAccount != ''">
+                AND emp.emp_account = #{empAccount}
+            </if>
+            <if test="empName != null and empName != ''">
+                AND emp.emp_name = #{empName}
+            </if>
+            <if test="empPhone != null and empPhone != ''">
+                AND  emp.emp_phone = #{empPhone}
+            </if>
+        </where>
+    </select>
+
+    <!-- 添加员工 -->
+    <insert id="addEmp" parameterType="employee">
+        INSERT INTO employee VALUE(NULL,#{empAccount},#{empPwd},#{empName},NULL,0,#{empPhone},NOW(),#{shop.id});
+    </insert>
+
+    <!-- 修改员工状态 -->
+    <update id="modifyEmpById" parameterType="employee">
+        UPDATE employee SET emp_status = #{empStatus},emp_name = #{empName},emp_phone = #{empPhone} WHERE id = #{id}
+    </update>
+
+    <!-- 查询所有员工信息 -->
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT *,r.id roles_id,s.id shop_id
+        FROM employee emp
+        LEFT JOIN roles r
+        ON emp.role_id = r.id
+        LEFT JOIN shop s
+        ON emp.shop_id = s.id
     </select>
 </mapper>

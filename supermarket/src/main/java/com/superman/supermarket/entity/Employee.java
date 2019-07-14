@@ -40,6 +40,15 @@ private static final long serialVersionUID=1L;
 
     private Integer shopId;
 
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    private Shop shop;
 
     public Integer getId() {
         return id;

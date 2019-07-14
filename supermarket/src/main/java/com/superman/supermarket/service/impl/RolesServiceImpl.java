@@ -5,6 +5,10 @@ import com.superman.supermarket.dao.RolesMapper;
 import com.superman.supermarket.service.RolesService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -14,7 +18,13 @@ import org.springframework.stereotype.Service;
  * @author superman
  * @since 2019-07-12
  */
+@Transactional
 @Service
 public class RolesServiceImpl extends ServiceImpl<RolesMapper, Roles> implements RolesService {
-
+    @Resource
+    private RolesMapper rolesMapper;
+    @Override
+    public List<Roles> findAll() {
+        return rolesMapper.selectList(null);
+    }
 }

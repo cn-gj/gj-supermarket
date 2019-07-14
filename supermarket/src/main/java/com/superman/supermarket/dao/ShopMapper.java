@@ -24,5 +24,5 @@ public interface ShopMapper extends BaseMapper<Shop> {
      * @param shopVO
      * @return
      */
-   IPage<ShopVO> getShopInfoByCondition(@Param("page") Page<ShopVO> page, @Param("shopVo") ShopVO shopVO);
+   List<ShopVO> getShopInfoByCondition(@Param("shopVo") ShopVO shopVO);
 }

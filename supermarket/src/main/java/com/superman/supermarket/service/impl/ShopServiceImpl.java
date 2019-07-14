@@ -42,7 +42,7 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements Sh
      * @return
      */
     @Override
-    public IPage<ShopVO> getShopInfoByCondition(Page<ShopVO> page, ShopVO shopVO) {
-        return  shopMapper.getShopInfoByCondition(page,shopVO);
+    public List<ShopVO> getShopInfoByCondition(ShopVO shopVO) {
+        return  shopMapper.getShopInfoByCondition(shopVO);
     }
 }
