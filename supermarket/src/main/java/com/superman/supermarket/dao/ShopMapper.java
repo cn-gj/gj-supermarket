@@ -70,6 +70,4 @@ public interface ShopMapper extends BaseMapper<Shop> {
     */
    Integer delShopInfo(Integer id);
 
-
-   List<ShopVO> getShopInfoByCondition(@Param("shopVo") ShopVO shopVO);
 }
